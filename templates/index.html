@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Scanner - Google Vision API</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Wine Scanner</h1>
+            <p>Scan your wine label to get detailed information</p>
+        </header>
+
+        <main>
+            <div class="camera-container">
+                <video id="video" autoplay playsinline></video>
+                <canvas id="canvas" style="display: none;"></canvas>
+            </div>
+
+            <div class="controls">
+                <button id="switchCamera" class="btn">Switch Camera</button>
+                <button id="captureButton" class="btn primary">Scan Label</button>
+            </div>
+
+            <div id="loadingIndicator" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing image...</p>
+            </div>
+
+            <div id="result" class="result-container" style="display: none;">
+                <h2>Wine Information</h2>
+                <div id="wineInfo" class="wine-info">
+                    <!-- Results will be inserted here -->
+                </div>
+            </div>
+
+            <div id="error" class="error-message" style="display: none;">
+                <!-- Error messages will be displayed here -->
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
